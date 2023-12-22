@@ -37,16 +37,43 @@ int main(){
 
     // Optimal Approach - O(N)
     
+    // int maxi=INT_MIN;
+    // int sum=0;
+    // for(int i=0;i<n;i++){
+    //     sum=sum+arr[i];
+    //     if(sum>maxi){
+    //         maxi=sum;
+    //     }
+    //     if(sum<0){
+    //         sum=0;
+    //     }
+    // }
+    // cout<<maxi;
+
+    // Follow Up Question - Printing the subarray
     int maxi=INT_MIN;
     int sum=0;
+    int start=0;
+    int ansstart=-1;
+    int ansend=-1;
     for(int i=0;i<n;i++){
+        if(sum==0){
+            start=i;
+        }
         sum=sum+arr[i];
         if(sum>maxi){
             maxi=sum;
+            ansstart=start;
+            ansend=i;
         }
         if(sum<0){
             sum=0;
         }
     }
-    cout<<maxi;
+    cout<<"Maximum Sum Is: "<<maxi<<endl;
+    cout << "The subarray is: [";
+    for (int i = ansstart; i <= ansend; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << "]n";
 }

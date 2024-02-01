@@ -26,6 +26,10 @@ int main(){
         if(arr[mid]==k){
             return mid;
         }
+        if(arr[low]==arr[mid] && arr[mid]==arr[high]){
+            low=low+1;
+            high=high-1;
+        }
         if(arr[low]<=arr[mid]){
             if(arr[low]<=k && k<=arr[mid]){
                 high=mid-1;
